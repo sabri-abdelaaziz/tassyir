@@ -25,6 +25,8 @@ import com.wagdev.tassyir.core.presentation.common_ui.Splash
 import com.wagdev.tassyir.note_feature.presentation.add_edit_note.AddEditNoteScreen
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
 import com.wagdev.tassyir.note_feature.presentation.util.Screen
+import com.wagdev.tassyir.task_feature.presentation.addedittask.AddEditTaskScreen
+import com.wagdev.tassyir.task_feature.presentation.tasks.TaskScreen
 
 @Composable
 fun Navigations(
@@ -38,17 +40,37 @@ fun Navigations(
         }
         composable(
             Screen.AddEditNotesScreen.route+"?noteId={noteId}&noteColor={noteColor}", arguments = listOf(
-            navArgument(name="noteId"){
-                type= NavType.IntType
-                defaultValue=-1
-            },
-            navArgument(name="noteColor"){
-                type= NavType.IntType
-                defaultValue=-1
-            }
-        )){
+                navArgument(name="noteId"){
+                    type= NavType.IntType
+                    defaultValue=-1
+                },
+                navArgument(name="noteColor"){
+                    type= NavType.IntType
+                    defaultValue=-1
+                }
+            )){
             val color=it.arguments?.getInt("noteColor")?:-1
             AddEditNoteScreen(navController = navController, noteColor =color )
+        }
+        composable(Screen.Splash.route){
+            Splash(navController = navController)
+        }
+        composable(Screen.TaskScreen.route){
+            TaskScreen(navController = navController)
+        }
+        composable(
+            Screen.AddEditTaskScreen.route+"?taskId={taskId}&taskColor={taskColor}", arguments = listOf(
+                navArgument(name="taskId"){
+                    type= NavType.IntType
+                    defaultValue=-1
+                },
+                navArgument(name="taskColor"){
+                    type= NavType.IntType
+                    defaultValue=-1
+                }
+            )){
+            val color=it.arguments?.getInt("taskColor")?:-1
+            AddEditTaskScreen(navController = navController, taskColor =color)
         }
         composable(Screen.Splash.route){
             Splash(navController = navController)

@@ -12,7 +12,7 @@ import java.sql.Timestamp
 
 @Entity
 data class Note(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id :Int? = null,
     val title :String,
     val content :String,

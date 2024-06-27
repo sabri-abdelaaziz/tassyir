@@ -91,6 +91,9 @@ dependencies {
     // icons
     implementation(libs.androidx.material.icons.extended)
 
+    //system ui controller to change the ui
+   // implementation(libs.accompanist.systemui.controller)
+
 }
 kapt {
     correctErrorTypes = true

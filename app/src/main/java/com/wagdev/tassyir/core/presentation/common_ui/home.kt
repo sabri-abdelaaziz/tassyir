@@ -51,8 +51,10 @@ import androidx.navigation.NavController
 import com.wagdev.tassyir.note_feature.presentation.util.Screen
 import com.wagdev.tassyir.R
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
+import com.wagdev.tassyir.task_feature.presentation.tasks.TaskScreen
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,6 +100,11 @@ fun Home(
                                         imageVector = if (i == bottomNavState) e.selectedIcon else e.unselectedIcon,
                                         contentDescription = null
                                     )
+                                },
+                                label = {
+                                    if( i == bottomNavState){
+                                        Text(e.title)
+                                    }
                                 }
                             )
                         }
@@ -124,7 +131,7 @@ fun Home(
                                 Icon(Icons.Default.Search, contentDescription = null)
                             }
                         },
-                        title = { Text("Tayssir") }
+                        title = { Text(stringResource(id = R.string.app_name)) }
                     )
                 },
                 modifier = modifier,
@@ -148,7 +155,7 @@ fun Home(
                         when (bottomNavState) {
                             0 -> HomeContent()
                             1 -> NoteScreen(navController = navController)
-                            2 -> SecondContent()
+                            2 -> TaskScreen(navController=navController)
                             3 -> ThirdContent()
                             // Ajoutez plus de cas en fonction du nombre d'éléments dans votre barre de navigation
                             else -> Text("Invalid selection")

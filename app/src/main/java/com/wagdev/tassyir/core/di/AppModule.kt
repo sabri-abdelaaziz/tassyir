@@ -1,9 +1,7 @@
-package com.wagdev.tassyir.note_feature.di
+package com.wagdev.tassyir.core.di
 
 import android.app.Application
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.wagdev.tassyir.note_feature.data.local.NoteDataBase
 import com.wagdev.tassyir.note_feature.data.repository.NoteRepositoryImpl
 import com.wagdev.tassyir.note_feature.domain.repository.NoteRepository
@@ -12,6 +10,13 @@ import com.wagdev.tassyir.note_feature.domain.usecases.DeleteNoteUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.GetNoteUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.GetNotesUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.NoteUseCases
+import com.wagdev.tassyir.task_feature.data.repository.TaskRepositoryImp
+import com.wagdev.tassyir.task_feature.domain.TaskRepository.TaskRepository
+import com.wagdev.tassyir.task_feature.domain.TaskUseCases.AddEditTaskUseCase
+import com.wagdev.tassyir.task_feature.domain.TaskUseCases.DeleteTaskUseCase
+import com.wagdev.tassyir.task_feature.domain.TaskUseCases.GetTaskUseUse
+import com.wagdev.tassyir.task_feature.domain.TaskUseCases.GetTasksUseCase
+import com.wagdev.tassyir.task_feature.domain.TaskUseCases.TaskUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,6 +55,26 @@ object AppModule {
             deleteNote = DeleteNoteUseCase(repository),
             addNote = AddNoteUseCase(repository),
             getNote = GetNoteUseCase(repository)
+        )
+
+    }
+
+    @Provides
+    @Singleton
+    fun providesTaskRepository(
+        db:NoteDataBase
+    ): TaskRepository {
+        return TaskRepositoryImp(db.taskDao)
+    }
+
+    @Provides
+    @Singleton
+    fun providesTaskUseCases(repository: TaskRepository):TaskUseCase {
+        return TaskUseCase(
+            getTaskUseUse = GetTaskUseUse(repository),
+            deleteUseCase = DeleteTaskUseCase(repository),
+            insertUseCase = AddEditTaskUseCase(repository),
+            getTasksUseUse = GetTasksUseCase(repository)
         )
 
     }

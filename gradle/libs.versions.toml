@@ -16,6 +16,7 @@ composeBom = "2024.06.00"
 navigationSafeArgsGradlePlugin = "2.7.7"
 roomRuntime = "2.6.1"
 navigationRuntimeKtx = "2.7.7"
+accompanistSystemuiController = "0.27.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +47,8 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
 androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version = "1.6.8" }
+accompanist-systemui-controller = { module = "com.google.accompanist:accompanist-systemui-controller", version.ref = "accompanistSystemuiController" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
