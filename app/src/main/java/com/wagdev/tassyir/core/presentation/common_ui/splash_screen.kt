@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.wagdev.tassyir.R
-import com.wagdev.tassyir.note_feature.presentation.util.Screen
+import com.wagdev.tassyir.core.util.Screen
 import kotlinx.coroutines.delay
 
 @Composable

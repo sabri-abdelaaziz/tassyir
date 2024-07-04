@@ -48,11 +48,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.wagdev.tassyir.note_feature.presentation.util.Screen
+import com.wagdev.tassyir.core.util.Screen
 import com.wagdev.tassyir.R
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.wagdev.tassyir.earning_feature.presentation.Earns.EarnScreen
+import com.wagdev.tassyir.goal_feature.presentation.goals.GoalScreen
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
 import com.wagdev.tassyir.task_feature.presentation.tasks.TaskScreen
 import kotlinx.coroutines.launch
@@ -156,7 +158,10 @@ fun Home(
                             0 -> HomeContent()
                             1 -> NoteScreen(navController = navController)
                             2 -> TaskScreen(navController=navController)
-                            3 -> ThirdContent()
+
+                            3 -> GoalScreen(navController=navController)
+                            4 -> EarnScreen(navController=navController)
+                            5 -> ThirdContent()
                             // Ajoutez plus de cas en fonction du nombre d'éléments dans votre barre de navigation
                             else -> Text("Invalid selection")
                         }

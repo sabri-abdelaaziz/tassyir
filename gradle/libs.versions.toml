@@ -17,6 +17,7 @@ navigationSafeArgsGradlePlugin = "2.7.7"
 roomRuntime = "2.6.1"
 navigationRuntimeKtx = "2.7.7"
 accompanistSystemuiController = "0.27.0"
+playServicesFitness = "21.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -48,6 +49,7 @@ androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navig
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
 androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version = "1.6.8" }
 accompanist-systemui-controller = { module = "com.google.accompanist:accompanist-systemui-controller", version.ref = "accompanistSystemuiController" }
+play-services-fitness = { group = "com.google.android.gms", name = "play-services-fitness", version.ref = "playServicesFitness" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

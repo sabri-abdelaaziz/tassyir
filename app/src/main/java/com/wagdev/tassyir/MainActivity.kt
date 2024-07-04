@@ -24,7 +24,7 @@ import com.wagdev.tassyir.core.presentation.common_ui.Schedule
 import com.wagdev.tassyir.core.presentation.common_ui.Splash
 import com.wagdev.tassyir.note_feature.presentation.add_edit_note.AddEditNoteScreen
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
-import com.wagdev.tassyir.note_feature.presentation.util.Screen
+import com.wagdev.tassyir.core.util.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

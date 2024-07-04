@@ -42,7 +42,7 @@ import com.wagdev.tassyir.note_feature.presentation.notes.NoteEvent
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteViewModel
 import com.wagdev.tassyir.note_feature.presentation.notes.components.NoteItem
 import com.wagdev.tassyir.note_feature.presentation.notes.components.OrderSection
-import com.wagdev.tassyir.note_feature.presentation.util.Screen
+import com.wagdev.tassyir.core.util.Screen
 import com.wagdev.tassyir.task_feature.presentation.tasks.components.TaskItem
 import com.wagdev.tassyir.task_feature.presentation.tasks.components.TaskOrderSection
 import kotlinx.coroutines.launch
