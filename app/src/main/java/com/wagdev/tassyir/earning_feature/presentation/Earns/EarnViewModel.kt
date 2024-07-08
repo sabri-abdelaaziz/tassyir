@@ -1,7 +1,9 @@
 package com.wagdev.tassyir.earning_feature.presentation.Earns
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,6 +25,7 @@ class EarnViewModel @Inject constructor(
     var earn by mutableStateOf<Earn?>(null)
     val isModelOpen=mutableStateOf(false)
 
+    val selectedOrderState= mutableIntStateOf(0)
 
 
     init{
@@ -33,7 +36,7 @@ class EarnViewModel @Inject constructor(
         }
     }
 
-    suspend fun onEvent(event: EarnEvent){
+    fun onEvent(event: EarnEvent){
       when(event){
           is EarnEvent.deleteEarn -> {
               viewModelScope.launch {

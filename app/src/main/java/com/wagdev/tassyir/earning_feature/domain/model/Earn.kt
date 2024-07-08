@@ -6,12 +6,12 @@ import androidx.room.PrimaryKey
 @Entity
 data class Earn(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
-    val amount: Double,
-    val date: Long,
-    val description: String,
-    val category :String
+    val id: Int=0,
+    var name: String,
+    var amount: Double=0.0,
+    val date: Long=System.currentTimeMillis(),
+    val description: String="",
+    val category :String="cash"
 ){
     companion object{
         val SOURCES=listOf<String>("Cash","Bank","Card")

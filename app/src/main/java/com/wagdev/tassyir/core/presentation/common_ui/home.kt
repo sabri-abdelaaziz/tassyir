@@ -56,6 +56,8 @@ import androidx.compose.ui.text.font.FontWeight
 import com.wagdev.tassyir.earning_feature.presentation.Earns.EarnScreen
 import com.wagdev.tassyir.goal_feature.presentation.goals.GoalScreen
 import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
+import com.wagdev.tassyir.reminder_feature.presentation.ReminderScreen
+import com.wagdev.tassyir.spending_feature.presentation.spends.SpendScreen
 import com.wagdev.tassyir.task_feature.presentation.tasks.TaskScreen
 import kotlinx.coroutines.launch
 
@@ -155,13 +157,14 @@ fun Home(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         when (bottomNavState) {
-                            0 -> HomeContent()
-                            1 -> NoteScreen(navController = navController)
-                            2 -> TaskScreen(navController=navController)
+                          //  0 -> HomeContent()
+                            0 -> NoteScreen(navController = navController)
+                            1 -> TaskScreen(navController=navController)
 
-                            3 -> GoalScreen(navController=navController)
-                            4 -> EarnScreen(navController=navController)
-                            5 -> ThirdContent()
+                            2 -> GoalScreen(navController=navController)
+                            3 -> EarnScreen(navController=navController)
+                            4 -> SpendScreen(navController=navController)
+                            5 -> ReminderScreen(navController=navController)
                             // Ajoutez plus de cas en fonction du nombre d'éléments dans votre barre de navigation
                             else -> Text("Invalid selection")
                         }

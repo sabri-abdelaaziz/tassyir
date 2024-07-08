@@ -17,14 +17,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.wagdev.noteapp.ui.theme.NoteappTheme
 import com.wagdev.tassyir.core.controller.Navigations
-import com.wagdev.tassyir.core.presentation.common_ui.Activities
-import com.wagdev.tassyir.core.presentation.common_ui.Expenses
-import com.wagdev.tassyir.core.presentation.common_ui.Home
-import com.wagdev.tassyir.core.presentation.common_ui.Schedule
-import com.wagdev.tassyir.core.presentation.common_ui.Splash
-import com.wagdev.tassyir.note_feature.presentation.add_edit_note.AddEditNoteScreen
-import com.wagdev.tassyir.note_feature.presentation.notes.NoteScreen
-import com.wagdev.tassyir.core.util.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -26,6 +26,20 @@ import com.wagdev.tassyir.note_feature.domain.usecases.DeleteNoteUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.GetNoteUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.GetNotesUseCase
 import com.wagdev.tassyir.note_feature.domain.usecases.NoteUseCases
+import com.wagdev.tassyir.reminder_feature.data.repository.ReminderRepositoryImpl
+import com.wagdev.tassyir.reminder_feature.domain.repository.ReminderRepository
+import com.wagdev.tassyir.reminder_feature.domain.usecases.AddEditReminderUseCase
+import com.wagdev.tassyir.reminder_feature.domain.usecases.DeleteReminderUseCase
+import com.wagdev.tassyir.reminder_feature.domain.usecases.GetAllRemindersUseCase
+import com.wagdev.tassyir.reminder_feature.domain.usecases.GetReminderByIdUseCase
+import com.wagdev.tassyir.reminder_feature.domain.usecases.ReminderUseCase
+import com.wagdev.tassyir.spending_feature.data.repository.SpendRepositoryImpl
+import com.wagdev.tassyir.spending_feature.domain.repository.SpendRepository
+import com.wagdev.tassyir.spending_feature.domain.usecases.AddEditSpendUseCase
+import com.wagdev.tassyir.spending_feature.domain.usecases.DeleteSpendUseCase
+import com.wagdev.tassyir.spending_feature.domain.usecases.GetSpendByIdUseCase
+import com.wagdev.tassyir.spending_feature.domain.usecases.GetSpendsUseCase
+import com.wagdev.tassyir.spending_feature.domain.usecases.SpendUseCase
 import com.wagdev.tassyir.task_feature.data.repository.TaskRepositoryImp
 import com.wagdev.tassyir.task_feature.domain.TaskRepository.TaskRepository
 import com.wagdev.tassyir.task_feature.domain.TaskUseCases.AddEditTaskUseCase
@@ -133,6 +147,50 @@ object AppModule {
             getEarnByIDUseCase = GetEarnByIDUseCase(repository),
             deleteEarnUseCase = DeleteEarnUseCase(repository),
             insertEarnUseCase = AddEditEarnUseCase(repository)
+        )
+
+    }
+    /// Provides for testing the use cases of spending feature
+
+  @Provides
+  @Singleton
+  fun providesSpendRepository(
+      db:NoteDataBase
+  ):SpendRepository{
+      return SpendRepositoryImpl(db.spendDao)
+  }
+
+    @Provides
+    @Singleton
+    fun providesSpendUseCases(
+        repository:SpendRepository
+    ):SpendUseCase{
+        return SpendUseCase(
+            getSpendByIdUseCase = GetSpendByIdUseCase(repository),
+            getSpendsUseCase = GetSpendsUseCase(repository),
+            deleteSpendUseCase = DeleteSpendUseCase(repository),
+            addEditeSpend = AddEditSpendUseCase(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun providesReminderRepository(
+        db:NoteDataBase
+    ):ReminderRepository{
+        return ReminderRepositoryImpl(db.reminderDao)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReminderUseCases(
+        repository:ReminderRepository
+    ):ReminderUseCase{
+        return ReminderUseCase(
+            getAllRemindersUseCase = GetAllRemindersUseCase(repository),
+            getReminderByIdUseCase = GetReminderByIdUseCase(repository),
+            deleteReminderUseCase = DeleteReminderUseCase(repository),
+            addEditReminderUseCase = AddEditReminderUseCase(repository)
         )
     }
 

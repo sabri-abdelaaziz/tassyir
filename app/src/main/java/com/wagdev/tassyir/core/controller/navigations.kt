@@ -1,15 +1,15 @@
 package com.wagdev.tassyir.core.controller
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MonetizationOn
 import androidx.compose.material.icons.filled.Money
-import androidx.compose.material.icons.filled.Note
 import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.outlined.EditNote
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.MonetizationOn
 import androidx.compose.material.icons.outlined.Money
-import androidx.compose.material.icons.outlined.Note
 import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,7 +20,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.wagdev.tassyir.core.presentation.common_ui.Activities
 import com.wagdev.tassyir.core.presentation.common_ui.BottomItem
-import com.wagdev.tassyir.core.presentation.common_ui.Expenses
 import com.wagdev.tassyir.core.presentation.common_ui.Home
 import com.wagdev.tassyir.core.presentation.common_ui.Schedule
 import com.wagdev.tassyir.core.presentation.common_ui.Splash
@@ -30,9 +29,10 @@ import com.wagdev.tassyir.core.util.Screen
 import com.wagdev.tassyir.earning_feature.presentation.Earns.EarnScreen
 import com.wagdev.tassyir.goal_feature.presentation.addEditGoal.AddEditGoalScreen
 import com.wagdev.tassyir.goal_feature.presentation.goals.GoalScreen
+import com.wagdev.tassyir.reminder_feature.presentation.ReminderScreen
+import com.wagdev.tassyir.spending_feature.presentation.spends.SpendScreen
 import com.wagdev.tassyir.task_feature.presentation.addedittask.AddEditTaskScreen
 import com.wagdev.tassyir.task_feature.presentation.tasks.TaskScreen
-import kotlin.reflect.typeOf
 
 @Composable
 fun Navigations(
@@ -45,9 +45,7 @@ fun Navigations(
         composable(Screen.NotesScreen.route){
             NoteScreen(navController = navController)
         }
-        composable(Screen.Expenses.route){
-            Expenses(navController=navController)
-        }
+
         composable(Screen.Schedule.route){
             Schedule(navController=navController)
         }
@@ -62,11 +60,18 @@ fun Navigations(
         }
 
        //spending screen
+        composable(Screen.Spending.route){
+            SpendScreen(navController = navController, modifier = modifier)
+        }
         // earning screen
         composable(Screen.Earning.route){
             EarnScreen(navController = navController)
         }
         //reminder screen
+        composable(Screen.Reminder.route){
+            ReminderScreen(navController=navController)
+        }
+        //addNote screen
         composable(
             Screen.AddEditNotesScreen.route+"?noteId={noteId}&noteColor={noteColor}", arguments = listOf(
                 navArgument(name="noteId"){
@@ -121,8 +126,8 @@ fun Navigations(
                 ),
                 BottomItem(
                         title ="Notes",
-                selectedIcon = Icons.Filled.Note,
-                unselectedIcon = Icons.Outlined.Note,
+                selectedIcon = Icons.Filled.EditNote,
+                unselectedIcon = Icons.Outlined.EditNote,
                 badgeNum = 0,
                 hasBadge = false
             ),
