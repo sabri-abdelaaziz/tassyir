@@ -19,7 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.wagdev.tassyir.core.presentation.common_ui.Activities
-import com.wagdev.tassyir.core.presentation.common_ui.BottomItem
+import com.wagdev.tassyir.core.util.BottomItem
 import com.wagdev.tassyir.core.presentation.common_ui.Home
 import com.wagdev.tassyir.core.presentation.common_ui.Schedule
 import com.wagdev.tassyir.core.presentation.common_ui.Splash
@@ -41,7 +41,7 @@ fun Navigations(
 )
 {
 
-    NavHost(navController = navController, startDestination = Screen.Splash.route){
+    NavHost(navController = navController, startDestination = Screen.Home.route){
         composable(Screen.NotesScreen.route){
             NoteScreen(navController = navController)
         }
@@ -138,20 +138,8 @@ fun Navigations(
                 badgeNum = 0,
                 hasBadge = false
             ),
-                BottomItem(
-                    title ="Goals",
-                    selectedIcon = Icons.Filled.Money,
-                    unselectedIcon = Icons.Outlined.Money,
-                    badgeNum = 2,
-                    hasBadge = true
-                ),
-                BottomItem(
-                    title ="Earning",
-                    selectedIcon = Icons.Filled.MonetizationOn,
-                    unselectedIcon = Icons.Outlined.MonetizationOn,
-                    badgeNum = 2,
-                    hasBadge = true
-                ),
+
+
                 BottomItem(
                     title ="Finance",
                     selectedIcon = Icons.Filled.Money,

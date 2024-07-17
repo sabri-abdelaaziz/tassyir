@@ -2,4 +2,11 @@
 <resources>
 
     <style name="Theme.Tassyir" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.MySpashScreen" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:duration">1000</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/financial</item>
+        <item name="postSplashScreenTheme">@style/Theme.Tassyir</item>
+    </style>
 </resources>

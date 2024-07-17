@@ -95,7 +95,8 @@ dependencies {
 
     //system ui controller to change the ui
    // implementation(libs.accompanist.systemui.controller)
-
+//splash screen
+    implementation(libs.androidx.core.splashscreen)
 }
 kapt {
     correctErrorTypes = true

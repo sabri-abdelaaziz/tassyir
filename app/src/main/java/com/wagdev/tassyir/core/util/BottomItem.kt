@@ -1,4 +1,4 @@
-package com.wagdev.tassyir.core.presentation.common_ui
+package com.wagdev.tassyir.core.util
 
 import android.graphics.drawable.Icon
 import androidx.compose.ui.graphics.vector.ImageVector
